@@ -4,6 +4,7 @@
 #minibuffer {
   border-top: 1px solid -moz-Dialog;
   -moz-box-align: baseline;
+  font-size: 16px !important;
 }
 
 #minibuffer-input {
@@ -56,7 +57,7 @@
 
 /* Completions display */
 
-tree.completions { margin: 0px !important; }
+tree.completions { margin: 0px !important; font-size: 16px !important; }
 
 tree.completions treechildren { border: none !important; }
 
@@ -70,6 +71,7 @@ tree.completions {
 
 tree.completions treechildren::-moz-tree-row {
   border: none;
+  height: 20px !important;
 }
 
 tree.completions treechildren::-moz-tree-row(current) {
@@ -86,7 +88,7 @@ tree.completions treechildren::-moz-tree-cell-text(current) {
 }
 
 tree.completions[hasicons="true"] treechildren::-moz-tree-image {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   margin-right: 6px;
 }

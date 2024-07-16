@@ -6,6 +6,7 @@
   -moz-appearance: toolbar;
   -moz-box-align: center;
   overflow: hidden;
+  font-size: 16px;
 }
 
 .mode-line label[value=""] {
