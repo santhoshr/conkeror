@@ -23,3 +23,4 @@ plugins
 /debian/.debhelper/
 /xulrunner
 /conkeror-bin
+.DS_Store
