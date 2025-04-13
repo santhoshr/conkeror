@@ -1,0 +1,4 @@
+#!/bin/sh
+
+open -a Basilisk --args -app /Users/santhoshr/Applications/conkeror/application.ini & Sleep 5 osascript -e 'tell application "Basilisk" to activate' 
+
