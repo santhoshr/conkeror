@@ -55,6 +55,7 @@
 .tab-label {
   -moz-box-flex: 100;
   font: icon;
+  font-size: 1.1em; /* Added for better visibility on 2K/4K monitors */
 }
 
 .tab[selected="true"] > .tab-label {

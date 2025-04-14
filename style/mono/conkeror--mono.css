@@ -3,4 +3,5 @@
 
 * {
   font-family: monospace;
+  font-size: 16px !important; /* Added for better visibility on 2K/4K monitors */
 }

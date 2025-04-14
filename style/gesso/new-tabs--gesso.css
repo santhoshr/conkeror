@@ -3,4 +3,5 @@
 
 .tab2 {
   -moz-appearance: none;
+  font-size: 1.1em; /* Added for better visibility on 2K/4K monitors */
 }
