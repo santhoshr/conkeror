@@ -24,21 +24,71 @@ define_variable("browser_relationship_patterns", {},
     "page-modes.");
 
 browser_relationship_patterns[RELATIONSHIP_NEXT] =
-    [/^next$/i,
-     new RegExp("^>$","i"),
-     new RegExp("^(>>|»)$","i"),
-     new RegExp("^(>|»)","i"),
-     new RegExp("(>|»)$","i"),
-     new RegExp("\\bnext","i")
+    [
+     // Standalone symbols as complete content
+     /^>$/i,    // Greater than sign alone
+     /^\u003E$/i, // Greater than sign (>) as Unicode
+     /^&gt;$/i,   // Greater than sign HTML entity
+     
+     // Exact matches for each special character as Unicode code points
+     /^\u2192$/, // Right arrow (→)
+     /^\u00BB$/, // Right double angle quotation mark (»)
+     /^\u276F$/, // Heavy right-pointing angle quotation mark ornament (❯)
+     /^\u27E9$/, // Mathematical right angle bracket (⟩)
+     /^\u21D2$/, // Rightwards double arrow (⇒)
+     /^\u25B6$/, // Black right-pointing triangle (▶)
+     /^\u203A$/, // Single right-pointing angle quotation mark (›)
+     /^\u226B$/, // Much greater-than (≫)
+     /^\u2283$/, // Superset of (⊃)
+     
+     // Double symbols at start of text (e.g., ">> Next")
+     /^(>>|&gt;&gt;|\u00BB|\u276F|\u2192|\u27E9|\u21D2|\u25B6|\u203A|\u226B|\u2283)/i, 
+     
+     // Double symbols at end of text (e.g., "Next >>")
+     /(>>|&gt;&gt;|\u00BB|\u276F|\u2192|\u27E9|\u21D2|\u25B6|\u203A|\u226B|\u2283)$/i,
+     
+     // Single symbols at beginning of text (e.g., "> Next")
+     /^(>|&gt;|\u00BB|\u276F|\u2192|\u27E9|\u21D2|\u25B6|\u203A|\u226B|\u2283)/i,
+     
+     // Single symbols at end of text (e.g., "Next >")
+     /(>|&gt;|\u00BB|\u276F|\u2192|\u27E9|\u21D2|\u25B6|\u203A|\u226B|\u2283)$/i,
+     
+     // Text matches
+     /\b(next|forward|newer|next page|blahn)\b/i
     ];
 
 browser_relationship_patterns[RELATIONSHIP_PREVIOUS] =
-    [/^(prev|previous)$/i,
-     new RegExp("^<$","i"),
-     new RegExp("^(<<|«)$","i"),
-     new RegExp("^(<|«)","i"),
-     new RegExp("(<|«)$","i"),
-     new RegExp("\\bprev|previous\\b","i")
+    [
+     // Standalone symbols as complete content
+     /^<$/i,    // Less than sign alone
+     /^\u003C$/i, // Less than sign (<) as Unicode
+     /^&lt;$/i,   // Less than sign HTML entity
+     
+     // Exact matches for each special character as Unicode code points
+     /^\u2190$/, // Left arrow (←)
+     /^\u00AB$/, // Left double angle quotation mark («)
+     /^\u276E$/, // Heavy left-pointing angle quotation mark ornament (❮)
+     /^\u27E8$/, // Mathematical left angle bracket (⟨)
+     /^\u21D0$/, // Leftwards double arrow (⇐)
+     /^\u25C0$/, // Black left-pointing triangle (◀)
+     /^\u2039$/, // Single left-pointing angle quotation mark (‹)
+     /^\u226A$/, // Much less-than (≪)
+     /^\u2282$/, // Subset of (⊂)
+     
+     // Double symbols at start of text (e.g., "<< Previous")
+     /^(<<|&lt;&lt;|\u00AB|\u276E|\u2190|\u27E8|\u21D0|\u25C0|\u2039|\u226A|\u2282)/i,
+     
+     // Double symbols at end of text (e.g., "Previous <<")
+     /(<<|&lt;&lt;|\u00AB|\u276E|\u2190|\u27E8|\u21D0|\u25C0|\u2039|\u226A|\u2282)$/i,
+     
+     // Single symbols at beginning of text (e.g., "< Previous")
+     /^(<|&lt;|\u00AB|\u276E|\u2190|\u27E8|\u21D0|\u25C0|\u2039|\u226A|\u2282)/i,
+     
+     // Single symbols at end of text (e.g., "Previous <")
+     /(<|&lt;|\u00AB|\u276E|\u2190|\u27E8|\u21D0|\u25C0|\u2039|\u226A|\u2282)$/i,
+     
+     // Text matches
+     /\b(prev|previous|back|older|previous page|blahp)\b/i
     ];
 
 function document_get_element_by_relationship (doc, patterns, relationship) {
