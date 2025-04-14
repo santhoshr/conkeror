@@ -68,10 +68,12 @@ function make_file_from_chrome (url) {
 function file_symlink_p (file) {
     try {
         return file.isSymlink();
-    } catch (e if (e instanceof Ci.nsIException) &&
-             e.result == Cr.NS_ERROR_FILE_TARGET_DOES_NOT_EXIST)
-    {
-        return false;
+    } catch (e) {
+        if (e instanceof Ci.nsIException &&
+            e.result == Cr.NS_ERROR_FILE_TARGET_DOES_NOT_EXIST) {
+            return false;
+        }
+        throw e; // Re-throw the error if it doesn't match the condition
     }
 }
 
@@ -555,6 +557,7 @@ function get_contents_synchronously (url) {
             channel = ioService.newChannelFromURI(url);
         else
             channel = ioService.newChannel(url, null, null);
+            // channel = ioService.newChannel2(url);
         input=channel.open();
     } catch (e) {
         return null;

@@ -161,11 +161,15 @@ application.prototype = {
                         load1.call(this.conkeror, url, truepath);
                         return;
                     }
-                } catch (e if (typeof e == 'string' &&
-                               (e.startsWith("ContentLength not available (not a local URL?)") ||
-                                e.startsWith("Error creating channel (invalid URL scheme?)") ||
-                                e.startsWith("Error opening input stream (invalid filename?)")))) {
-                    // null op. (suppress error, try next path)
+                } catch (e) {
+                    if (typeof e == 'string' &&
+                        (e.startsWith("ContentLength not available (not a local URL?)") ||
+                         e.startsWith("Error creating channel (invalid URL scheme?)") ||
+                         e.startsWith("Error opening input stream (invalid filename?)"))) {
+                        // null op. (suppress error, try next path)
+                    } else {
+                        throw e;
+                    }
                 }
                 if (autoext)
                     exti = (exti + 1) % exts.len;

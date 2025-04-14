@@ -1,0 +1,2 @@
+#!/bin/bash
+/Applications/Basilisk.app/Contents/MacOS/basilisk --app /Users/santhoshr/Applications/conkeror/application.ini $*

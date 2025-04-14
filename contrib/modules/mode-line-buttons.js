@@ -77,7 +77,7 @@ function mode_line_add_buttons (buttons, prepend) {
     }
 }
 
-standard_mode_line_buttons = [
+var standard_mode_line_buttons = [
     ["find-url", "open"],
     ["find-url-new-buffer", "new"],
     ["back", "go-back"],
