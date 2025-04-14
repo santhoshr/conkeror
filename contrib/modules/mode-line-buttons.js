@@ -17,7 +17,13 @@ button_widget.prototype = {
 
     make_element: function (window) {
         var command = this.command;
-        var element = create_XUL(window, "image");
+        var element = create_XUL(window, "toolbarbutton");
+        
+        // Set appropriate attributes for toolbar button
+        if (this.attributes.label) {
+            element.setAttribute("label", this.attributes.label);
+            element.setAttribute("tooltiptext", this.attributes.tooltiptext || this.attributes.label);
+        }
 
         element.addEventListener("click", function (event) {
             var I = new interactive_context(window.buffers.current);
@@ -25,7 +31,15 @@ button_widget.prototype = {
         }, false);
 
         element.addEventListener("mouseover", function (event) {
-            var msg = "Button: " + command;
+            // Get the button name from the map if available
+            var buttonName = "";
+            for (var i = 0; i < standard_mode_line_buttons.length; i++) {
+                if (standard_mode_line_buttons[i][0] === command) {
+                    buttonName = " (" + standard_mode_line_buttons[i][1] + ")";
+                    break;
+                }
+            }
+            var msg = "Button: " + command + buttonName;
             var keymaps = get_current_keymaps(window);
             var list = keymap_lookup_command(keymaps, command);
             if (list.length)
@@ -48,9 +62,16 @@ button_widget.prototype = {
 };
 
 function make_button_widget (command, attributes) {
-    if (typeof attributes == "string")
-        // Simple case
-        attributes = { src: "moz-icon://stock/gtk-" + attributes };
+    if (typeof attributes == "string") {
+        // Single character symbol instead of full text or icon
+        var symbol = get_symbol_for_button(attributes);
+        var tooltipText = attributes; // Use the full name as tooltip
+        attributes = { 
+            label: symbol, 
+            class: "symbol-button",
+            tooltiptext: tooltipText  // Add tooltiptext attribute
+        };
+    }
 
     function new_widget (window) {
         button_widget.call(this, window);
@@ -86,7 +107,32 @@ var standard_mode_line_buttons = [
     ["kill-current-buffer", "close"],
     ["buffer-previous", "go-up"],
     ["buffer-next", "go-down"],
+    ["home", "home"],
     ["help-page", "help"],
+    ["quit", "quit"],
 ];
+
+function get_symbol_for_button(button_text) {
+    // Map button text to simple ASCII characters
+    // Unicode equivalents commented for reference
+    const symbolMap = {
+        'go-back': '<',
+        'go-forward': '>',
+        'open': 'O',
+        'new': '+', 
+        'refresh': 'R',
+        'close': 'X',
+        'go-up': '^',
+        'go-down': 'v',
+        'home': 'H',
+        'help': '?', 
+        'quit': 'Q',
+    };
+    
+    return symbolMap[button_text] || button_text.charAt(0);
+}
+
+// Register the symbol-buttons.css stylesheet for styling the buttons
+register_user_stylesheet("chrome://conkeror-gui/skin/common/symbol-buttons.css");
 
 provide("mode-line-buttons");
