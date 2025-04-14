@@ -1,0 +1,31 @@
+/* filepath: /Users/santhoshr/Applications/conkeror/style/dark-hidpi/eye-guide.css */
+@namespace url("http://www.w3.org/1999/xhtml");
+
+#__conkeror_eye_guide {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  background: white; /* Changed to white for dark theme */
+  opacity: 0.15; /* Slightly increased opacity for better visibility */
+  z-index: 100000;
+}
+
+/*
+ *  Note, the following selectors can be styled with a
+ * border-top and border-bottom respectively to achieve
+ * the effect of a single line scroll-guide:
+ *
+ *  #__conkeror_eye_guide.__conkeror_eye_guide_scroll_down
+ *  #__conkeror_eye_guide.__conkeror_eye_guide_scroll_up
+ *
+ */
+
+/* Adding single line guide styles for dark theme */
+#__conkeror_eye_guide.__conkeror_eye_guide_scroll_down {
+  border-top: 1px solid rgba(255, 255, 255, 0.5); /* White line with transparency */
+}
+
+#__conkeror_eye_guide.__conkeror_eye_guide_scroll_up {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* White line with transparency */
+}

@@ -1,0 +1,114 @@
+/* filepath: /Users/santhoshr/Applications/conkeror/style/dark-hidpi/minibuffer.css */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#minibuffer {
+  border-top: 1px solid #333333;
+  -moz-box-align: baseline;
+  font-size: 1.5em !important; /* Large font for HiDPI */
+  background-color: #080808; /* Almost black background */
+  color: #e0e0e0; /* Light text color */
+}
+
+#minibuffer-input {
+  background-color: #121212 !important; /* Almost black input field */
+  color: #e0e0e0 !important; /* Light text color */
+}
+
+#minibuffer-input .textbox-input-box {
+  width: 5em;
+}
+
+#minibuffer-input [anonid="annotation"] {
+  font-style: oblique;
+  color: #bbbbbb; /* Slightly dimmer annotation text */
+}
+
+#minibuffer-input [anonid="strut"] {
+  padding-right: 1.2em !important; /* Increased padding */
+}
+
+/* mode text widgets */
+
+#minibuffer .mode-text-widget {
+  display: none;
+}
+
+#minibuffer[minibuffermode="message"] .mode-text-widget {
+  display: block;
+  border-left: 1px solid #555555; /* Darker border */
+  padding-left: 6px !important; /* Increased padding */
+  padding-right: 6px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  color: #bbbbbb; /* Slightly dimmer mode text */
+}
+
+#minibuffer[minibuffermode="message"] .mode-text-widget[value=""] {
+  display: none;
+}
+
+
+/* minibuffer highlighting */
+
+#minibuffer.highlight {
+  background-color: #444444; /* Dark highlight background */
+  color: #ffffff; /* White text for contrast */
+}
+
+#minibuffer.highlight[minibuffermode="message"] .mode-text-widget {
+  border-left: 1px solid #777777;
+}
+
+
+/* Completions display */
+
+tree.completions { 
+  margin: 0px !important; 
+  font-size: 1.5em !important; /* Large font for HiDPI */
+  background-color: #080808 !important; /* Almost black background */
+  color: #e0e0e0 !important; /* Light text */
+}
+
+tree.completions treechildren { 
+  border: none !important;
+  background-color: #080808 !important; /* Almost black background */
+}
+
+tree.completions treecol { -moz-binding: none !important; }
+
+tree.completions {
+  -moz-appearance: none !important;
+  border: 0px none !important;
+  border-top: 1px solid #444444 !important; /* Dark border */
+  -moz-border-top-colors: -moz-initial !important;
+}
+
+tree.completions treechildren::-moz-tree-row {
+  border: none;
+  height: 26px !important; /* Increased height for HiDPI */
+  background-color: #080808 !important; /* Almost black background */
+}
+
+tree.completions treechildren::-moz-tree-row(current) {
+  background-color: #333333 !important; /* Very dark selection color */
+  color: #ffffff !important; /* White text for selected item */
+}
+
+tree.completions treechildren::-moz-tree-cell-text {
+  color: #e0e0e0 !important; /* Light text color */
+}
+
+tree.completions treechildren::-moz-tree-cell-text(completion-description) {
+  font-weight: bold !important;
+  color: #ffffff !important; /* Brighter text for descriptions */
+}
+
+tree.completions treechildren::/font-moz-tree-cell-text(current) {
+  color: #ffffff !important; /* White text for selected item */
+}
+
+tree.completions[hasicons="true"] treechildren::-moz-tree-image {
+  width: 26px; /* Increased for HiDPI */
+  height: 26px; /* Increased for HiDPI */
+  margin-right: 8px; /* Increased margin */
+}

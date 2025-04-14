@@ -6,7 +6,7 @@
   -moz-appearance: toolbar;
   -moz-box-align: center;
   overflow: hidden;
-  font-size: 16px; /* Added for better visibility on 2K/4K monitors */
+  font-size: 1.5em !important; /* Added for better visibility on 2K/4K monitors */
 }
 
 .mode-line label[value=""] {

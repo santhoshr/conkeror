@@ -1,0 +1,21 @@
+/* filepath: /Users/santhoshr/Applications/conkeror/style/dark-hidpi/mode-line.css */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.mode-line {
+  padding: 3px; /* Increased padding */
+  -moz-appearance: none; /* Remove default appearance */
+  background-color: #080808; /* Almost black background */
+  color: #e0e0e0; /* Light text */
+  border-top: 1px solid #333333; /* Dark top border */
+  -moz-box-align: center;
+  overflow: hidden;
+  font-size: 1.5em !important; /* Increased font size for HiDPI */
+}
+
+.mode-line label {
+  color: #e0e0e0; /* Light text color */
+}
+
+.mode-line label[value=""] {
+  display: none;
+}

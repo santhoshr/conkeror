@@ -4,7 +4,7 @@
 #minibuffer {
   border-top: 1px solid -moz-Dialog;
   -moz-box-align: baseline;
-  font-size: 16px !important; /* Added for better visibility on 2K/4K monitors */
+  font-size: 1.5em !important; /* Added for better visibility on 2K/4K monitors */
 }
 
 #minibuffer-input {
@@ -57,7 +57,7 @@
 
 /* Completions display */
 
-tree.completions { margin: 0px !important; font-size: 16px !important; /* Added for better visibility on 2K/4K monitors */ }
+tree.completions { margin: 0px !important; font-size: 1.5em !important; /* Added for better visibility on 2K/4K monitors */ }
 
 tree.completions treechildren { border: none !important; }
 

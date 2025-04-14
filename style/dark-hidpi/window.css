@@ -1,0 +1,105 @@
+/* filepath: /Users/santhoshr/Applications/conkeror/style/dark-hidpi/window.css */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+window, dialog, page, wizard, prefwindow {
+  background-color: #000000 !important; /* Pure black background for main window */
+  color: #e0e0e0 !important; /* Light text for contrast */
+}
+
+/* Make browser chrome elements dark */
+#browser {
+  background-color: #000000 !important;
+}
+
+/* All toolbars and menubars */
+toolbar, menubar {
+  background-color: #050505 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Scrollbars */
+scrollbar {
+  background-color: #0a0a0a !important;
+}
+
+scrollbar thumb {
+  background-color: #333333 !important;
+}
+
+/* General buttons */
+button {
+  background-color: #222222 !important;
+  color: #e0e0e0 !important;
+  border-color: #444444 !important;
+}
+
+button:hover {
+  background-color: #333333 !important;
+}
+
+button[disabled="true"] {
+  opacity: 0.5 !important;
+}
+
+/* Main content area */
+browser, tabbrowser, editor {
+  background-color: #000000 !important;
+}
+
+/* Status bar/addon bar if present */
+statusbar {
+  background-color: #050505 !important;
+  color: #e0e0e0 !important;
+  border-top: 1px solid #333333 !important;
+}
+
+/* Panels, popups, menus */
+panel, popup, menu, menupopup {
+  background-color: #111111 !important;
+  color: #e0e0e0 !important;
+  border-color: #333333 !important;
+}
+
+menuitem, menu {
+  color: #e0e0e0 !important;
+}
+
+menuitem:hover, menu:hover {
+  background-color: #333333 !important;
+}
+
+/* Dialog boxes */
+dialog {
+  background-color: #111111 !important;
+  color: #e0e0e0 !important;
+}
+
+/* XUL trees */
+tree {
+  background-color: #0a0a0a !important;
+  color: #e0e0e0 !important;
+}
+
+/* XUL listboxes */
+listbox {
+  background-color: #0a0a0a !important;
+  color: #e0e0e0 !important;
+}
+
+/* XUL rich listboxes */
+richlistbox {
+  background-color: #0a0a0a !important;
+  color: #e0e0e0 !important;
+}
+
+richlistitem[selected="true"] {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+/* Text boxes and inputs */
+textbox, searchbox {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+  border-color: #333333 !important;
+}

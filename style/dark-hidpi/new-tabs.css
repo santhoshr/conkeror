@@ -1,0 +1,53 @@
+/* filepath: /Users/santhoshr/Applications/conkeror/style/dark-hidpi/new-tabs.css */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#tab2-bar {
+  border-bottom: 1px solid #333333; /* Darker border */
+  padding-bottom: 2px;
+  background-color: #050505; /* Almost black background for tab bar */
+}
+
+.tab2 {
+  -moz-appearance: none; /* Remove default appearance */
+  -moz-box-align: center;
+  min-width: 14em;
+  max-width: 20em;
+  padding: 4px 8px;
+  background-color: #121212; /* Very dark background for tabs */
+  color: #e0e0e0; /* Light text for tabs */
+  border: 1px solid #333333; /* Darker border */
+  border-bottom: none;
+  border-radius: 3px 3px 0 0; /* Rounded corners on top */
+}
+
+.tab2[selected="true"] {
+  background-color: #080808; /* Almost black background for selected tab */
+  color: #ffffff; /* White text for selected tab */
+}
+
+.tab2-label {
+  -moz-box-flex: 100;
+  margin-left: 6pt;
+  padding-top: 2pt;
+  font-size: 1.3em;
+  color: inherit; /* Inherit color from tab */
+}
+
+.tab2-index {
+  padding: 1pt 4pt 1pt 5pt;
+  font-weight: 900;
+  text-align: center;
+  font-size: 1.1em;
+  color: #bbbbbb; /* Slightly dimmer for index */
+}
+
+.tab2[selected="true"] .tab2-index {
+  color: #ffffff; /* White for selected tab index */
+}
+
+.tab2-icon {
+  width: 24px;
+  height: 24px;
+  -moz-margin-start: 8pt;
+  -moz-margin-end: 6pt;
+}

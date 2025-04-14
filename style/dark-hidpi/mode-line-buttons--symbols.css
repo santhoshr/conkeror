@@ -1,0 +1,25 @@
+/**
+ * Symbol buttons CSS for mode-line-buttons
+ */
+
+ .symbol-button {
+    min-width: 18px !important;
+    max-width: 22px !important;
+    height: 18px !important;
+    padding: 0 1px !important;
+    margin: 0 1px !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    background-color: #080808 !important;
+    color: #e3e1e1 !important;
+    border: 1px solid #aaa !important;
+    border-radius: 3px !important;
+    cursor: pointer !important;
+}
+
+.symbol-button:hover {
+    background-color: #e9e4e4 !important;
+    color: #000 !important;
+    border-color: #888 !important;
+}

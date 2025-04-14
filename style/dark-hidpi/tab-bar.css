@@ -1,0 +1,74 @@
+/* filepath: /Users/santhoshr/Applications/conkeror/style/dark-hidpi/tab-bar.css */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#tab-bar {
+  -moz-box-pack: end;
+  /* Add some padding to the bar itself */
+  padding-bottom: 2px;
+  background-color: #050505; /* Almost black background for tab bar */
+}
+
+.tab {
+  -moz-appearance: none; /* Remove default appearance */
+  margin-top: 2px;
+  border-top: 2px solid #333333;
+  border-right: 2px solid #222222;
+  border-left: 2px solid #333333;
+  border-bottom: 1px solid #080808;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 2px;
+  padding: 6px 12px 6px 12px;
+  background-color: #121212; /* Very dark background for tabs */
+  color: #e0e0e0; /* Light text for tabs */
+  min-width: 180px;
+  max-width: 400px;
+  -moz-box-flex: 100;
+  -moz-box-align: center;
+}
+
+.tab[selected="true"] {
+  border-bottom-color: transparent;
+  padding: 6px 14px 8px 14px;
+  background-color: #080808; /* Almost black background for selected tab */
+  color: #ffffff; /* White text for selected tab */
+}
+
+.tab-close-button {
+  -moz-appearance: none !important;
+  list-style-image: url("chrome://global/skin/icons/close.png") !important;
+  -moz-image-region: rect(0px, 14px, 14px, 0px);
+  border: none !important;
+  /* Consider a dark theme close button if available */
+}
+
+.tab[selected="false"] .tab-close-button {
+  display: none;
+}
+
+.tab-close-button:hover {
+  -moz-image-region: rect(0px, 28px, 14px, 14px);
+}
+
+.tab-close-button:active:hover {
+  -moz-image-region: rect(0px, 42px, 14px, 28px);
+}
+
+.tab-label {
+  -moz-box-flex: 100;
+  font: icon;
+  font-size: 1.5em;
+  color: inherit; /* Inherit color from tab */
+}
+
+.tab[selected="true"] > .tab-label {
+  font-weight: bold;
+}
+
+.tab-icon  {
+  width: 28px;
+  height: 28px;
+  list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png");
+  -moz-margin-start: 10px;
+  -moz-margin-end: 8px;
+}

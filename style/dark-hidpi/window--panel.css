@@ -1,0 +1,14 @@
+/* filepath: /Users/santhoshr/Applications/conkeror/style/dark-hidpi/window--panel.css */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.panel {
+  background-color: #111111; /* Very dark background */
+  color: #e0e0e0; /* Light text */
+  border: 1px solid #333333; /* Dark border */
+}
+
+.panel .panel-row-label {
+  font-weight: bold;
+  font-size: 1.1em; /* Added font size increase */
+  color: #ffffff; /* Bright white for labels */
+}

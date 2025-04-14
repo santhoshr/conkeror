@@ -132,7 +132,4 @@ function get_symbol_for_button(button_text) {
     return symbolMap[button_text] || button_text.charAt(0);
 }
 
-// Register the symbol-buttons.css stylesheet for styling the buttons
-register_user_stylesheet("chrome://conkeror-gui/skin/common/symbol-buttons.css");
-
 provide("mode-line-buttons");

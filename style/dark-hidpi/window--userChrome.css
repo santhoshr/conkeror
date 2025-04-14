@@ -1,0 +1,97 @@
+/* filepath: /Users/santhoshr/Applications/conkeror/style/dark-hidpi/window--userChrome.css */
+/* userChrome.css for Conkeror - Based on Pale Moon forum recommendations
+ * This file applies custom styling to the browser's chrome UI with highest priority
+ * Specifically targeting scrollbars and title bar for dark theme on macOS
+ */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* Dark theme variables */
+:root {
+  --scrollbar-bg: #1a1a1a;
+  --scrollbar-thumb: #444444;
+}
+
+/* Universal dark scrollbar styling - Enhanced for macOS */
+scrollbar, scrollbar * {
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+scrollbar {
+  background-color: var(--scrollbar-bg) !important;
+  color: var(--scrollbar-bg) !important;
+  max-width: 15px !important;
+  min-width: 15px !important;
+  border: none !important;
+}
+
+scrollbar[orient="horizontal"] {
+  max-height: 15px !important;
+  min-height: 15px !important;
+}
+
+scrollbar thumb {
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-color: var(--scrollbar-thumb) !important;
+  border: none !important;
+  border-radius: 7px !important;
+}
+
+scrollbar thumb:hover,
+scrollbar thumb:active {
+  background-color: #777777 !important;
+}
+
+/* Completely hide scrollbar buttons */
+scrollbar scrollbarbutton {
+  visibility: collapse !important;
+  display: none !important;
+}
+
+/* Scrollbar corner */
+scrollcorner {
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-color: var(--scrollbar-bg) !important;
+}
+
+/* Title bar styling */
+window, dialog {
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-color: #111111 !important;
+  color: #e0e0e0 !important;
+}
+
+#titlebar,
+.titlebar,
+#navigator-toolbox {
+  background-color: #111111 !important;
+  color: #e0e0e0 !important;
+}
+
+/* macOS specific */
+@media (-moz-platform: macosx) {
+  :root {
+    -moz-mac-appearance: none !important;
+  }
+  
+  :root:-moz-window-inactive {
+    background-color: #0a0a0a !important;
+  }
+  
+  /* Explicitly target macOS scrollbars */
+  ::-webkit-scrollbar {
+    background-color: #1a1a1a !important;
+    width: 15px !important;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #444444 !important;
+    border-radius: 7px !important;
+  }
+}
+

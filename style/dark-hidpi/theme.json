@@ -1,5 +1,5 @@
-
 { "sheets": [
+      "window--userChrome.css",
       "content-buffer-input.css",
       "eye-guide.css",
       "minibuffer.css",
@@ -7,6 +7,7 @@
       "new-tabs.css",
       "mode-line-buttons--symbols.css",
       "tab-bar.css",
-      "window--panel.css"
+      "window--panel.css",
+      "window.css"
   ]
 }
