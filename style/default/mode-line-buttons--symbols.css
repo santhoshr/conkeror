@@ -5,21 +5,91 @@
 .symbol-button {
     min-width: 18px !important;
     max-width: 22px !important;
-    height: 18px !important;
-    padding: 0 1px !important;
+    /* height: 18px !important; Removed fixed height */
+    padding: 3px 1px !important; /* Adjusted vertical padding */
     margin: 0 1px !important;
     font-size: 12px !important;
     font-weight: bold !important;
-    text-align: center !important;
+    /* text-align: center !important; Replaced by justify-content */
     background-color: #e2e2e2 !important;
     color: #333 !important;
     border: 1px solid #aaa !important;
     border-radius: 3px !important;
     cursor: pointer !important;
+    /* Make button a flex container to center its text content */
+    display: inline-flex !important; /* Use inline-flex to keep buttons inline */
+    align-items: center !important; /* Vertically center text */
+    justify-content: center !important; /* Horizontally center text */
+    /* Add transition for smooth resizing and transformation */
+    transition: font-size 0.1s ease-in-out, padding 0.1s ease-in-out, margin 0.1s ease-in-out, background-color 0.1s ease-in-out, color 0.1s ease-in-out, border-color 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
 
 .symbol-button:hover {
     background-color: #d0d0d0 !important;
     color: #000 !important;
     border-color: #888 !important;
+}
+
+/* Increase button size when mode-line is hovered */
+.mode-line:hover .symbol-button {
+    font-size: 14px !important; /* Slightly larger font */
+    padding: 2px 3px !important; /* Increase padding */
+    margin: 0 2px !important; /* Adjust margin slightly */
+}
+
+/* Optional: Keep the specific hover effect distinct */
+.mode-line:hover .symbol-button:hover {
+    background-color: #c8c8c8 !important; /* Slightly different hover color when mode-line is also hovered */
+}
+
+/* Style for mode line buttons to enable magnification */
+.mode-line .button-widget.magnify-on-hover {
+  transition: transform 0.1s ease-in-out, margin 0.1s ease-in-out; /* Smooth transition for scale and margin */
+  transform-origin: center; /* Scale from the center */
+  margin-left: 2px !important; /* Add some initial spacing */
+  margin-right: 2px !important;
+}
+
+/* Apply magnification on hover */
+.mode-line .button-widget.magnify-on-hover:hover {
+  transform: scale(1.5); /* Increase size */
+  margin-left: 5px !important; /* Adjust margin when magnified */
+  margin-right: 5px !important;
+  z-index: 10; /* Ensure hovered button is on top */
+}
+
+/* Optional: Adjust adjacent buttons slightly when a neighbor is hovered */
+.mode-line .button-widget.magnify-on-hover:hover + .button-widget.magnify-on-hover {
+  transform: scale(1.2); /* Scale less */
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+}
+
+.mode-line .button-widget.magnify-on-hover:has(+ .button-widget.magnify-on-hover:hover) {
+    transform: scale(1.2); /* Scale less */
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+}
+
+/* Ensure symbol buttons also get the magnification base class styles if needed */
+.symbol-button.magnify-on-hover {
+    /* Inherit or define base transition/origin if not covered by .button-widget */
+    transition: transform 0.1s ease-in-out, margin 0.1s ease-in-out;
+    transform-origin: center; /* Scale from the center */
+}
+
+/* Apply magnification specifically to symbol buttons on hover */
+.symbol-button.magnify-on-hover:hover {
+    transform: scale(1.5); /* Increase size */
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    z-index: 10;
+}
+
+/* Adjust adjacent symbol buttons */
+.symbol-button.magnify-on-hover:hover + .symbol-button.magnify-on-hover,
+.symbol-button.magnify-on-hover:has(+ .symbol-button.magnify-on-hover:hover) {
+    transform: scale(1.2); /* Scale less */
+    margin-left: 4px !important;
+    margin-right: 4px !important;
 }

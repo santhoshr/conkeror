@@ -1,0 +1,48 @@
+/* filepath: /Users/santhoshr/Applications/conkeror/style/dark-hidpi/content-dark.css */
+/**
+ * Dark theme for web content but with exceptions for hint highlighting
+ */
+
+@namespace url("http://www.w3.org/1999/xhtml");
+
+/* Dark theme for general web content */
+html, body {
+  background-color: #111111 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Make general content elements dark */
+div, article, section, header, footer, main, aside, nav, p, 
+h1, h2, h3, h4, h5, h6, span:not(.__conkeror_hint), 
+table, tr, td, th {
+  background-color: #111111 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Input fields */
+input, textarea, select, button {
+  background-color: #1a1a1a !important;
+  color: #e0e0e0 !important;
+  border-color: #333333 !important;
+}
+
+/* Links */
+a:link, a:link * {
+  color: #4986dd !important;
+}
+
+a:visited, a:visited * {
+  color: #d75047 !important;
+}
+
+/* Images - don't dark filter them */
+img, svg, video, canvas {
+  filter: brightness(0.85) !important;
+}
+
+/* Explicitly preserve hint styling */
+span.__conkeror_hint {
+  /* These styles are inherited from hints.css */
+  background-color: yellow !important;
+  color: black !important;
+}

@@ -18,7 +18,7 @@ button_widget.prototype = {
     make_element: function (window) {
         var command = this.command;
         var element = create_XUL(window, "toolbarbutton");
-        
+
         // Set appropriate attributes for toolbar button
         if (this.attributes.label) {
             element.setAttribute("label", this.attributes.label);
@@ -52,9 +52,20 @@ button_widget.prototype = {
         }, false);
 
         element.setAttribute("id", "button-widget-" + command);
-        element.setAttribute("class", this.class_name);
+        // Ensure existing classes are kept, including the base class_name and the new hover class
+        element.setAttribute("class", this.class_name + " magnify-on-hover");
         for (var a in this.attributes) {
-            element.setAttribute(a, this.attributes[a]);
+            // Avoid overwriting the class attribute set above
+            if (a !== "class") {
+                element.setAttribute(a, this.attributes[a]);
+            } else {
+                 // Append other classes from attributes if they exist, checking they aren't already added
+                 this.attributes[a].split(' ').filter(Boolean).forEach(cls => {
+                    if (!element.classList.contains(cls)) {
+                        element.classList.add(cls);
+                    }
+                 });
+            }
         }
 
         return element;

@@ -1,15 +1,25 @@
-/* filepath: /Users/santhoshr/Applications/conkeror/style/dark-hidpi/mode-line.css */
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 .mode-line {
   padding: 3px; /* Increased padding */
   -moz-appearance: none; /* Remove default appearance */
+  appearance: none; /* Standard property */
   background-color: #080808; /* Almost black background */
   color: #e0e0e0; /* Light text */
   border-top: 1px solid #333333; /* Dark top border */
-  -moz-box-align: center;
-  overflow: hidden;
+  /* -moz-box-align: center; Replaced by flexbox */
+  overflow: visible !important; /* Allow content to overflow for scaling */
   font-size: 1.5em !important; /* Increased font size for HiDPI */
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically center content */
+  transition: padding 0.1s ease-in-out; /* Transition padding changes */
+}
+
+.mode-line:hover {
+  padding-top: 8px !important; /* Increase top padding on hover */
+  padding-bottom: 8px !important; /* Increase bottom padding on hover */
+  position: relative; /* Needed for z-index */
+  z-index: 5; /* Ensure it's above normal content */
 }
 
 .mode-line label {

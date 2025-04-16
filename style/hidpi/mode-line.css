@@ -1,12 +1,23 @@
-
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 .mode-line {
-  padding: 2px;
+  padding: 2px; /* Base padding */
   -moz-appearance: toolbar;
-  -moz-box-align: center;
-  overflow: hidden;
+  appearance: toolbar; /* Added standard property */
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically center content */
+  overflow: visible !important;
   font-size: 16px;
+  transition: padding 0.1s ease-in-out; /* Transition padding changes */
+  /* transform-origin: bottom; No longer needed for scaling */
+}
+
+.mode-line:hover {
+  padding-top: 8px !important; /* Increase top padding on hover */
+  padding-bottom: 8px !important; /* Increase bottom padding on hover */
+  position: relative; /* Needed for z-index */
+  /* transform: scaleY(1.8); Removed scaling */
+  z-index: 5; /* Ensure it's above normal content */
 }
 
 .mode-line label[value=""] {
