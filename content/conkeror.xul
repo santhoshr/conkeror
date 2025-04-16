@@ -8,6 +8,7 @@ Use, modification, and distribution are subject to the terms specified in the
 COPYING file.
 -->
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://conkeror/content/titlebar.css" type="text/css"?>
 <?xul-overlay href="chrome://conkeror-gui/content/minibuffer.xul"?>
 <window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     onload="Components.classes['@conkeror.mozdev.org/application;1']
@@ -19,7 +20,20 @@ COPYING file.
     width="640" height="480"
     persist="screenX screenY width height sizemode"
     windowtype="navigator:browser"
-    fullscreenbutton="true">
+    fullscreenbutton="true"
+    chromemargin="0,-1,-1,-1">
+
+  <titlebar id="titlebar">
+    <label id="titlebar-title" value="Conkeror" flex="1"/>
+    <hbox id="titlebar-buttonbox">
+      <toolbarbutton class="titlebar-button" id="titlebar-min"
+          oncommand="window.minimize();"/>
+      <toolbarbutton class="titlebar-button" id="titlebar-max"
+          oncommand="window.windowState == 1 ? window.restore() : window.maximize();"/>
+      <toolbarbutton class="titlebar-button" id="titlebar-close"
+          oncommand="window.close();"/>
+    </hbox>
+  </titlebar>
 
   <stringbundleset id="stringbundleset">
   </stringbundleset>

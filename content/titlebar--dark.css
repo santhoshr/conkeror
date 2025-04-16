@@ -1,0 +1,60 @@
+/* Dark Titlebar Variant */
+
+#titlebar {
+  -moz-appearance: none !important;
+  background-color: #222; /* Dark background */
+  color: #eee; /* Light text */
+  border-bottom: 1px solid #444;
+}
+
+#titlebar-title {
+  color: #eee;
+}
+
+.titlebar-button {
+  -moz-appearance: none !important;
+  border: 1px solid #555;
+  background-color: #333;
+  color: #eee;
+  padding: 2px 6px;
+  margin-left: 3px;
+  border-radius: 3px;
+  min-width: 20px;
+  min-height: 20px;
+  list-style-image: none;
+}
+
+.titlebar-button:hover {
+  background-color: #444;
+}
+
+.titlebar-button:active {
+  background-color: #555;
+}
+
+/* Specific button appearances (using text for simplicity) */
+#titlebar-min::before {
+  content: "_";
+}
+
+#titlebar-max::before {
+  content: "□";
+}
+
+:root[sizemode=maximized] #titlebar-max::before {
+  content: "❐";
+}
+
+#titlebar-close::before {
+  content: "X";
+}
+
+#titlebar-min,
+#titlebar-max,
+#titlebar-close {
+  -moz-image-region: auto !important;
+  list-style-image: none !important;
+  font-size: 10px;
+  line-height: 1;
+  color: #eee; /* Ensure symbols are light */
+}

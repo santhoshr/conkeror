@@ -1,0 +1,62 @@
+/* Default Titlebar Styles */
+
+:root {
+  /* Attempt to use native appearance for borderless window */
+  /* Note: Exact native appearance replication is complex and OS-dependent */
+  /* -moz-appearance: -moz-win-borderless-glass; /* Example for Windows Aero */
+  /* For macOS, native appearance might be handled differently or require specific theme attributes */
+  background-color: transparent !important; /* Required for chromemargin */
+}
+
+#main-window {
+  /* Minimal border to define window shape if needed, might interfere with native look */
+  /* border: 1px solid ThreeDShadow; */
+}
+
+#titlebar {
+  /* Use default system appearance for the title bar area */
+  -moz-appearance: none; /* Reset custom appearance */
+  /* background-color: -moz-dialog; /* Example system color */
+  /* color: -moz-dialogtext; /* Example system color */
+  padding: 2px; /* Minimal padding */
+  -moz-box-align: center;
+  border-bottom: 1px solid ThreeDShadow; /* Subtle separator */
+  /* Allow dragging the window */
+  -moz-window-dragging: drag;
+}
+
+#titlebar-title {
+  font-weight: bold;
+  margin-inline-start: 4px; /* Use logical properties */
+  margin-inline-end: 4px;
+  /* Let the system handle the font/color */
+}
+
+#titlebar-buttonbox {
+  /* Use system appearance for the button box */
+  /* -moz-appearance: -moz-window-button-box; /* Might provide native layout */
+  -moz-box-orient: horizontal;
+}
+
+.titlebar-button {
+  /* Use system appearance for buttons */
+  -moz-appearance: -moz-window-control-button; /* Generic control button */
+  margin-inline-start: 2px;
+}
+
+/* Specific button appearances */
+#titlebar-min {
+  -moz-appearance: -moz-window-button-minimize;
+}
+
+#titlebar-max {
+  -moz-appearance: -moz-window-button-maximize;
+}
+
+:root[sizemode=maximized] #titlebar-max {
+  -moz-appearance: -moz-window-button-restore;
+}
+
+#titlebar-close {
+  -moz-appearance: -moz-window-button-close;
+}

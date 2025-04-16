@@ -8,6 +8,7 @@
       "mode-line-buttons--symbols.css",
       "tab-bar.css",
       "window--panel.css",
-      "window.css"
+      "window.css",
+      "../content/titlebar--dark.css" 
   ]
 }
